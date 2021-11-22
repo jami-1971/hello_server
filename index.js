@@ -17,10 +17,18 @@ async function run() {
       const database = client.db('us');
       const likhaCollection = database.collection('likha');
 
+      app.get('/likha', async(req, res)=>{
+        const email = req.query.email;
+        const query = {email:email}
+        const cursor = likhaCollection.find(query);
+        const likha = await <cursor></cursor>r></cursor>r></cursor>r></cursor>.toArray();
+        res.json(likha);
+      })
+
       app.post('/likha', async (req,res)=>{
         const likha  = req.body;
         const result = await likhaCollection.insertOne(likha);
-        res.send(result)
+        res.json(result);
       })
     } finally {
     //   await client.close();
