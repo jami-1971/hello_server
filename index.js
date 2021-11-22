@@ -21,7 +21,7 @@ async function run() {
         const email = req.query.email;
         const query = {email:email}
         const cursor = likhaCollection.find(query);
-        const likha = await <cursor></cursor>r></cursor>r></cursor>r></cursor>.toArray();
+        const likha = await cursor.toArray();
         res.json(likha);
       })
 
