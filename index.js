@@ -19,7 +19,8 @@ async function run() {
 
       app.get('/likha', async(req, res)=>{
         const email = req.query.email;
-        const query = {email:email}
+        const date = req.query.date;
+        const query = {email:email , date: date}
         const cursor = likhaCollection.find(query);
         const likha = await cursor.toArray();
         res.json(likha);
